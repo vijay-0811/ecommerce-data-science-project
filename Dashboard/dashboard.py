@@ -59,7 +59,7 @@ if df.empty:
 
 # Data cleaning
 df["TotalPrice"] = df["Quantity"] * df["UnitPrice"]
-df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], errors="coerce")
+df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"], format='mixed', errors="coerce")
 df["Month"] = df["InvoiceDate"].dt.to_period("M")
 
 # Sidebar
@@ -107,13 +107,6 @@ monthly_sales = (
     .sum()
     .reset_index()
 )
-
-# Convert Period → Timestamp (Streamlit Cloud requires datetime index)
-monthly_sales["Month"] = monthly_sales["Month"].dt.to_timestamp()
-
-monthly_sales = monthly_sales.set_index("Month")
-
-st.line_chart(monthly_sales)
 
 # Top Customers
 st.subheader("Top Customers")
