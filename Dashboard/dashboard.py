@@ -64,7 +64,7 @@ df["Month"] = df["InvoiceDate"].dt.to_period("M")
 
 # Sidebar
 st.sidebar.header("Filters")
-country = st.sidebar.selectbox("Monthly Sales", df["Country"].unique())
+country = st.sidebar.selectbox("Select Country", df["Country"].unique())
 
 filtered_df = df[df["Country"] == country]
 if filtered_df.empty:
