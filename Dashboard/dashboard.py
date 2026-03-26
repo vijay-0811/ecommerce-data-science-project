@@ -38,9 +38,9 @@ query = "SELECT * FROM ecommerce_data"
 if use_engine:
     # password contains '@', so quote it for the URL
     from urllib.parse import quote_plus
-    pwd = quote_plus(str(password))
-    url = f"mysql+mysqlconnector://{user}:{pwd}@{host} : 3306/{database}"
-    engine = create_engine(url)
+    # pwd = quote_plus(str(password))
+    # url = f"mysql+mysqlconnector://{user}:{pwd}@{host} : 3306/{database}"
+    # engine = create_engine(url)
     try:
         df = load_data()
     except Exception as e:
