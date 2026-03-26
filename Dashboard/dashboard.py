@@ -99,8 +99,20 @@ country_sales = (
 st.bar_chart(country_sales)
 
 # Monthly Trend
-monthly_sales = filtered_df.groupby("Month")["TotalPrice"].sum()
 st.subheader(f"Monthly Sales Trend — {country}")
+
+monthly_sales = (
+    filtered_df
+    .groupby("Month")["TotalPrice"]
+    .sum()
+    .reset_index()
+)
+
+# Convert Period → Timestamp (Streamlit Cloud requires datetime index)
+monthly_sales["Month"] = monthly_sales["Month"].dt.to_timestamp()
+
+monthly_sales = monthly_sales.set_index("Month")
+
 st.line_chart(monthly_sales)
 
 # Top Customers
