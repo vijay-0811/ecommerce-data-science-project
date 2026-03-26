@@ -1,0 +1,15 @@
+# Environment variables (do NOT commit secrets)
+.env
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Editor folders
+.vscode/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
