@@ -120,3 +120,22 @@ LinkedIn: https://www.linkedin.com/in/vijayprajapati0811/
 GitHub: https://github.com/vijay-0811
 
 
+## Deployment Architecture
+
+This dashboard is deployed on Streamlit Cloud and connects to a live cloud MySQL instance hosted on Railway/Aiven.
+
+Architecture:
+- Streamlit Cloud → Hosts UI
+- Railway / Aiven → Cloud MySQL database
+- GitHub → Source code repository
+
+
+## Live Dashboard:** https://ecommerce-data-science-project.streamlit.app/
+
+
+## 📊 Dashboard Preview
+
+Below is a preview of the live E-Commerce Data Science Dashboard:
+
+<img src="./dashboard_preview.png" width="900" />
+
