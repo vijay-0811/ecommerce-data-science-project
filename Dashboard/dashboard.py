@@ -64,7 +64,7 @@ df["Month"] = df["InvoiceDate"].dt.to_period("M")
 
 # Sidebar
 st.sidebar.header("Filters")
-country = st.sidebar.selectbox("Select Country", df["Country"].unique())
+country = st.sidebar.selectbox("Monthly Sales", df["Country"].unique())
 
 filtered_df = df[df["Country"] == country]
 if filtered_df.empty:
@@ -101,12 +101,8 @@ st.bar_chart(country_sales)
 # Monthly Trend
 st.subheader(f"Monthly Sales Trend — {country}")
 
-monthly_sales = (
-    filtered_df
-    .groupby("Month")["TotalPrice"]
-    .sum()
-    .reset_index()
-)
+monthly_sales = filtered_df.groupby("Month")["TotalPrice"].sum()
+st.line_chart(monthly_sales)
 
 # Top Customers
 st.subheader("Top Customers")
