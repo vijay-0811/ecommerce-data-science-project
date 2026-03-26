@@ -10,6 +10,7 @@ host = st.secrets.get("DB_HOST")
 user = st.secrets.get("DB_USER")
 password = st.secrets.get("DB_PASSWORD")
 database = st.secrets.get("DB_NAME")
+port = st.secrets.get("DB_PORT")
 
 st.title("E-Commerce Data Science Dashboard")
 
@@ -38,9 +39,9 @@ query = "SELECT * FROM ecommerce_data"
 if use_engine:
     # password contains '@', so quote it for the URL
     from urllib.parse import quote_plus
-    # pwd = quote_plus(str(password))
-    # url = f"mysql+mysqlconnector://{user}:{pwd}@{host} : 3306/{database}"
-    # engine = create_engine(url)
+    pwd = quote_plus(str(password))
+    url = f"mysql+mysqlconnector://{user}:{pwd}@{host} : 44185/{database}"
+    engine = create_engine(url)
     try:
         df = load_data()
     except Exception as e:
